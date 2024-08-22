@@ -4,5 +4,25 @@ function ageVerified() {
 }
 
 function underage() {
-  alert("You're Under Age");
+  const ageVerificationModalEl = document.getElementById(
+    "ageVerificationModal"
+  );
+  const ageVerificationModal = bootstrap.Modal.getInstance(
+    ageVerificationModalEl
+  );
+
+  if (ageVerificationModal) {
+    ageVerificationModal.hide();
+  }
+
+  ageVerificationModalEl.addEventListener(
+    "hidden.bs.modal",
+    function () {
+      const underageWarningModal = new bootstrap.Modal(
+        document.getElementById("underageWarningModal")
+      );
+      underageWarningModal.show();
+    },
+    { once: true }
+  );
 }
