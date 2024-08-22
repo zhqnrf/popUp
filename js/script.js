@@ -19,7 +19,11 @@ function underage() {
     "hidden.bs.modal",
     function () {
       const underageWarningModal = new bootstrap.Modal(
-        document.getElementById("underageWarningModal")
+        document.getElementById("underageWarningModal"),
+        {
+          backdrop: "static",
+          keyboard: false,
+        }
       );
       underageWarningModal.show();
     },
